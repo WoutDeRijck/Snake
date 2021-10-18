@@ -1,0 +1,31 @@
+1. 
+void f() {  //Goed
+ int x;
+ g(&x);
+}
+
+2.
+int *f() {  //Na functie, wijst de ptr naar niets
+ int x;
+ return &x;
+}
+
+3.
+int *f() {
+ int *p = malloc(sizeof(int)); //Goed
+ return p;
+}
+
+4.
+void f() {  //Na functie is alles weg
+ int x;
+ int **p = malloc(sizeof(int*));
+ *p = &x;
+}
+
+5.
+void f() {  //Onnodige free
+ int x;
+ free(&x);
+}
+
